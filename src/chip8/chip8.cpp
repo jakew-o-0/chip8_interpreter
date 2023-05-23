@@ -127,9 +127,9 @@ void chip8::fetch() {
 void chip8::decode() {
 
 	// for commands that dont vary
-	switch (this->opcode) {
-		case 0x00E0:	this->clear_screen();		break;
-		case 0x00EE:	this->exit_subroutine();	break;
+	switch (opcode) {
+		case 0x00E0:	clear_screen();		break;
+		case 0x00EE:	exit_subroutine();	break;
 
 		default:	break;
 	}
