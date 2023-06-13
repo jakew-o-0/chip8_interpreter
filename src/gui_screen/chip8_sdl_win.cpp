@@ -9,8 +9,8 @@
 
 #include <vector>
 
-#include "/home/jake/code/ch8_interpreter/src/gui_screen/chip8_sdl_win.h"
-#include "/home/jake/code/ch8_interpreter/src/chip8/chip8.h"
+#include "./src/gui_screen/chip8_sdl_win.h"
+#include "./src/chip8/chip8.h"
 
 
 

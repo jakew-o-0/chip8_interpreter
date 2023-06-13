@@ -1,10 +1,10 @@
-#include "/home/jake/code/ch8_interpreter/src/chip8/chip8.h"
-#include "/home/jake/code/ch8_interpreter/src/gui_screen/chip8_sdl_win.h"
+#include "./src/chip8/chip8.h"
+#include "./src/gui_screen/chip8_sdl_win.h"
 #include <SDL2/SDL_timer.h>
 
 
 int main(void) {
-	chip8 ch8_instance = chip8("/home/jake/code/ch8_interpreter/resorces/chip8-test-suite.ch8");
+	chip8 ch8_instance = chip8("./resorces/chip8-test-suite.ch8");
 	sdl_window_data window_data = init_sdl_win();
 	
 
