@@ -11,19 +11,16 @@
 
 void chip8::load_game(std::string path) {
 	// open file in binary mode
-	//
 	std::ifstream file;
 	file.open(path.c_str(), std::ios::binary | std::ios::in);
 	assert(file.is_open());
 
 	// find size of the rom for the buffer
-	//
 	file.seekg(1, std::ios::end);
 	int size = file.tellg();
 	file.seekg(1, std::ios::beg);
 
 	// create the buffer
-	//
 	std::vector<char> buff;
 	buff.resize(size);
 
@@ -139,29 +136,29 @@ void chip8::decode() {
 
 	switch (nibble_1) {
 		case 0x1:	pc = nnn;					break;
-		case 0x2:	call_subroutine();				break;
-		case 0x3:	x_NEqual_n();					break;
-		case 0x4:	x_Equal_n();					break;
-		case 0x5:	x_Equal_y();					break;
-		case 0x6:	registers[reg_x] = nn;				break;
-		case 0x7:	registers[reg_x] += nn;				break;
-		case 0x9:	x_NEqual_y();					break;
-		case 0xA:	index_ptr = opcode & nnn;			break;
-		case 0xB:	pc = registers[0] + nnn;			break;
+		case 0x2:	call_subroutine();			break;
+		case 0x3:	x_NEqual_n();				break;
+		case 0x4:	x_Equal_n();				break;
+		case 0x5:	x_Equal_y();				break;
+		case 0x6:	registers[reg_x] = nn;		break;
+		case 0x7:	registers[reg_x] += nn;		break;
+		case 0x9:	x_NEqual_y();				break;
+		case 0xA:	index_ptr = opcode & nnn;	break;
+		case 0xB:	pc = registers[0] + nnn;	break;
 		case 0xC:	registers[reg_x] = (std::rand() % 255) & nn;	break;
 		case 0xD:	draw();						break;
 
 		case 0x8: {
 			switch (nibble_2) {
 				case 0x0:	registers[reg_x] = registers[reg_y];	break;
-				case 0x1:	bitwise_OR();				break;
-				case 0x2:	bitwise_AND();				break;
-				case 0x3:	bitwise_XOR();				break;
-				case 0x4:	increment_by_Y();			break;
-				case 0x5:	decrement_by_Y();			break;
-				case 0x6:	shift_right();				break;
-				case 0x7:	subtract_y_by_x();			break;
-				case 0xE:	shift_left();				break;
+				case 0x1:	bitwise_OR();			break;
+				case 0x2:	bitwise_AND();			break;
+				case 0x3:	bitwise_XOR();			break;
+				case 0x4:	increment_by_Y();		break;
+				case 0x5:	decrement_by_Y();		break;
+				case 0x6:	shift_right();			break;
+				case 0x7:	subtract_y_by_x();		break;
+				case 0xE:	shift_left();			break;
 				default:	break;
 			}
 		}
@@ -185,10 +182,10 @@ void chip8::decode() {
 				case 0x15:	delay_reg = registers[reg_x];	break;
 				case 0x18:	sound_reg = registers[reg_x];	break;
 				case 0x1E:	index_ptr += registers[reg_x];	break;
-				case 0x29:	load_font();			break;
-				case 0x33:	bcd();				break;
-				case 0x55:	save();				break;
-				case 0x65:	load();				break;
+				case 0x29:	load_font();	break;
+				case 0x33:	bcd();			break;
+				case 0x55:	save();			break;
+				case 0x65:	load();			break;
 			}
 		}
 
